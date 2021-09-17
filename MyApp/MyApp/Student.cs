@@ -2,20 +2,37 @@ using System;
 
 namespace MyApp
 {
-    class Student
+    public class Student
     {
-        int id;
-        string givenName;
-        string surname;
-        enrollmentStatus status;
-        DateTime startDate, endDate, graduationDate;
+        public int id {get; init;}
+        public string givenName {get; set;}
+        public string surname {get; set;}
+        public enrollmentStatus status {get; init;}
+        public DateTime startDate {get; set;}
+        public DateTime endDate {get; set;}
+        public DateTime graduationDate {get; set;}
+
+        public Student(int id, string givenName, string surname, enrollmentStatus status, DateTime startDate, DateTime endDate, DateTime graduationDate) {
+            this.id  = id;
+            this.givenName = givenName;
+            this.surname = surname;
+            this.status = status;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.graduationDate = graduationDate;     
+        }
+        
+        public string toString() {
+            return "#" + id + " - " + givenName + " " + surname + " " + status + " " + startDate + " - " + endDate;
+        }
     }
 }
 
-enum enrollmentStatus
+public enum enrollmentStatus
 {
     New,
     Active,
     Dropout,
     Graduated
 }
+
